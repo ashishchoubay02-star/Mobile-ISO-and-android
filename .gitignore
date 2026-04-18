@@ -13,3 +13,12 @@ npm-shrinkwrap.json
 package-lock.json*
 site
 test/fixtures/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Tooling caches and metadata
+.eslintcache
+*.tsbuildinfo
