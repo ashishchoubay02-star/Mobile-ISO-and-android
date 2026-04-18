@@ -1,6 +1,7 @@
 import {clearSystemFiles, markSystemFilesForCleanup, isLocalHost} from '../../lib/utils';
 import {createSandbox} from 'sinon';
 import {fs} from 'appium/support';
+import path from 'node:path';
 import chai, {expect} from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
@@ -30,7 +31,7 @@ describe('utils', function () {
       };
       mockFs.expects('glob').once().returns([]);
       mockFs.expects('exists').atLeast(1).returns(true);
-      mockFs.expects('rimraf').once().withExactArgs(`${DERIVED_DATA_ROOT}/Logs`).resolves();
+      mockFs.expects('rimraf').once().withExactArgs(path.resolve(DERIVED_DATA_ROOT, 'Logs')).resolves();
       await clearSystemFiles(wda);
       mockFs.verify();
     });
@@ -43,7 +44,7 @@ describe('utils', function () {
       };
       mockFs.expects('glob').once().returns([]);
       mockFs.expects('exists').atLeast(1).returns(true);
-      mockFs.expects('rimraf').once().withExactArgs(`${DERIVED_DATA_ROOT}/Logs`).resolves();
+      mockFs.expects('rimraf').once().withExactArgs(path.resolve(DERIVED_DATA_ROOT, 'Logs')).resolves();
       await markSystemFilesForCleanup(wda);
       await markSystemFilesForCleanup(wda);
       await clearSystemFiles(wda);

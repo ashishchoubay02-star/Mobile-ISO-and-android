@@ -1,6 +1,7 @@
 import {parseContainerPath} from '../../../lib/commands/file-movement';
 import {tempDir} from 'appium/support';
 import {XCUITestDriver} from '../../../lib/driver';
+import path from 'node:path';
 import chai, {expect} from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
@@ -26,7 +27,7 @@ describe('file-movement', function () {
       );
 
       expect(bundleId).to.eql('io.appium.example');
-      expect(pathInContainer).to.eql(`${mntRoot}/Documents/file.txt`);
+      expect(pathInContainer).to.eql(path.resolve(mntRoot, 'Documents/file.txt'));
       expect(containerType).to.eql('app');
     });
     it('should parse with container root', async function () {
@@ -48,7 +49,7 @@ describe('file-movement', function () {
       );
 
       expect(bundleId).to.eql('io.appium.example');
-      expect(pathInContainer).to.eql(`${mntRoot}/Documents/file.txt`);
+      expect(pathInContainer).to.eql(path.resolve(mntRoot, 'Documents/file.txt'));
       expect(containerType).equal(null);
     });
     it('should raise an error if no container path', async function () {

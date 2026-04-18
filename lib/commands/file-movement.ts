@@ -80,7 +80,7 @@ export async function parseContainerPath(
   const containerRoot = _.isFunction(containerRootSupplier)
     ? await containerRootSupplier(bundleId, containerType)
     : containerRootSupplier;
-  const pathInContainer = path.posix.resolve(containerRoot, relativePath);
+  const pathInContainer = path.resolve(containerRoot, relativePath);
   verifyIsSubPath(pathInContainer, containerRoot);
   return {bundleId, pathInContainer, containerType};
 }
@@ -251,9 +251,10 @@ function isDocumentsContainer(containerType?: string | null): boolean {
  */
 function verifyIsSubPath(originalPath: string, root: string): void {
   const normalizedRoot = path.normalize(root);
+  const normalizedOriginalPath = path.normalize(originalPath);
   const normalizedPath = path.normalize(path.dirname(originalPath));
   // If originalPath is root, `/`, originalPath should equal to normalizedRoot
-  if (normalizedRoot !== originalPath && !normalizedPath.startsWith(normalizedRoot)) {
+  if (normalizedRoot !== normalizedOriginalPath && !normalizedPath.startsWith(normalizedRoot)) {
     throw new Error(`'${normalizedPath}' is expected to be a subpath of '${normalizedRoot}'`);
   }
 }
