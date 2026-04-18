@@ -1,55 +1,58 @@
-# appium-xcuitest-driver
+# Mobile-ISO-and-android
 
-[![npm version](http://img.shields.io/npm/v/appium-xcuitest-driver.svg)](https://npmjs.org/package/appium-xcuitest-driver)
-[![Downloads](http://img.shields.io/npm/dm/appium-xcuitest-driver.svg)](https://npmjs.org/package/appium-xcuitest-driver)
+Local development repository for mobile automation work, based on the Appium XCUITest driver codebase.
 
-[![Release](https://github.com/appium/appium-xcuitest-driver/actions/workflows/publish.js.yml/badge.svg)](https://github.com/appium/appium-xcuitest-driver/actions/workflows/publish.js.yml)
+## Overview
 
-This is an [Appium](https://appium.github.io/appium) driver for automating iOS applications on iOS,
-iPadOS, and tvOS.
+This project includes:
+
+- iOS automation driver implementation (XCUITest/Appium based)
+- driver commands and utilities under `lib/`
+- unit and functional test suites under `test/`
+- helper scripts under `scripts/`
 
 > [!IMPORTANT]
-> Only macOS is supported as the host platform, as it requires Xcode and developer tools.
+> iOS/XCUITest execution requires macOS with Xcode and Apple developer tooling.
 
-> [!IMPORTANT]
-> Since major version *10.0.0*, this driver is only compatible with Appium 3. Use the `appium driver install xcuitest`
-> command to add it to your distribution.
+## Tech Stack
 
+- Node.js (recommended version range from this repo: `^20.19.0 || ^22.12.0 || >=24.0.0`)
+- npm `>=10`
+- TypeScript
+- Appium 3 compatible codebase
 
-## Documentation
-
-The [Documentation](https://appium.github.io/appium-xcuitest-driver) is hosted separately at
-[https://appium.github.io/appium-xcuitest-driver](https://appium.github.io/appium-xcuitest-driver)
-
-## Contributing & Development
-
-Clone this project from GitHub and run:
+## Getting Started
 
 ```bash
 npm install
+npm run build
 ```
 
-To watch changes during the development:
+## Useful Commands
 
 ```bash
-npm run watch
+npm run build           # compile TypeScript
+npm run dev             # watch mode build
+npm run lint            # run eslint
+npm test                # unit tests
+npm run e2e-test        # functional tests
 ```
 
-To run unit/functional tests:
+## Project Structure
 
-```bash
-npm test # unit
-npm run e2e-test # functional
+```text
+lib/        Source code (driver, commands, device helpers)
+test/       Unit and functional tests
+scripts/    Utility scripts for WDA/device workflows
+docs/       Documentation site content
 ```
 
-There are also a number of environment variables that can be used when running
-the tests locally. These include:
+## Notes
 
-* `REAL_DEVICE` - set to anything truthy, makes the tests use real device capabilities
-* `_FORCE_LOGS` - set to `1` to get the log output, not just spec
-* `PLATFORM_VERSION` - change the version to run the tests against (defaults to `9.3`)
-* `XCCONFIG_FILE` - specify where the xcode config file is for a real device run (if
-  blank, and running a real device test, it will search for the first file in
-  the root directory of the repo with the extension "xcconfig")
-* `UICATALOG_REAL_DEVICE` - path to the real device build of UICatalog, in case
-  the npm installed one is not built for real device
+- This repository is maintained for personal/team mobile automation workflows.
+- Upstream Appium XCUITest docs are available at:
+  https://appium.github.io/appium-xcuitest-driver
+
+## License
+
+Apache-2.0
