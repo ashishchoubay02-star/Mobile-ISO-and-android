@@ -124,7 +124,7 @@
     "format:check": "prettier --check ./lib ./test",
     "install-docs-deps": "appium-docs init --no-mkdocs",
     "prepare": "npm run rebuild",
-    "rebuild": "npm run clean; npm run build",
+    "rebuild": "npm run clean && npm run build",
     "test": "mocha --exit --timeout 1m \"./test/unit/**/*-specs.ts\"",
     "e2e-test": "mocha --exit --timeout 10m \"./test/functional/**/*-specs.ts\"",
     "e2e-test:basic": "mocha \"./test/functional/basic/**/*-specs.ts\" --exit --timeout 10m",
