@@ -1,0 +1,130 @@
+INHERIT: ./node_modules/@appium/docutils/base-mkdocs.yml
+site_name: Appium XCUITest Driver
+repo_url: https://github.com/appium/appium-xcuitest-driver
+repo_name: appium/appium-xcuitest-driver
+copyright: |
+  <p>Copyright <a href="https://openjsf.org">OpenJS Foundation</a> and Appium contributors. All rights reserved. The <a href="https://openjsf.org">OpenJS Foundation</a> has registered trademarks and uses trademarks.  For a list of trademarks of the <a href="https://openjsf.org">OpenJS Foundation</a>, please see our <a href="https://trademark-policy.openjsf.org">Trademark Policy</a> and <a href="https://trademark-list.openjsf.org">Trademark List</a>. Trademarks and logos not indicated on the <a href="https://trademark-list.openjsf.org">list of OpenJS Foundation trademarks</a> are trademarks&trade; or registered&reg; trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.</p>
+  <p><a href="https://openjsf.org">The OpenJS Foundation</a> | <a href="https://terms-of-use.openjsf.org">Terms of Use</a> | <a href="https://privacy-policy.openjsf.org">Privacy Policy</a> | <a href="https://bylaws.openjsf.org">Bylaws</a> | <a href="https://code-of-conduct.openjsf.org">Code of Conduct</a> | <a href="https://trademark-policy.openjsf.org">Trademark Policy</a> | <a href="https://trademark-list.openjsf.org">Trademark List</a> | <a href="https://www.linuxfoundation.org/cookies">Cookie Policy</a></p>
+  <a href="#__consent">Change cookie settings</a>
+site_url: https://appium.github.io/appium-xcuitest-driver
+edit_uri: edit/master/docs
+site_description: Documentation for the Appium XCUITest driver for iOS automation
+docs_dir: docs
+site_dir: site
+
+theme:
+  logo: assets/images/appium-logo-white.png
+  favicon: assets/images/appium-logo.png
+  custom_dir: docs/overrides
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  homepage: /appium-xcuitest-driver
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/AppiumDevs
+
+nav:
+  - index.md
+  - overview.md
+  - Getting Started:
+      - getting-started/index.md
+      - getting-started/system-requirements.md
+      - getting-started/installation.md
+      - getting-started/device-setup.md
+      - Real Device Provisioning Profile:
+          - getting-started/provisioning-profile/index.md
+          - getting-started/provisioning-profile/auto-config.md
+          - getting-started/provisioning-profile/basic-manual-config.md
+          - getting-started/provisioning-profile/full-manual-config.md
+          - getting-started/provisioning-profile/generic-device-config.md
+  - Reference:
+      - Command Line:
+          - reference/scripts.md
+          - reference/server-args.md
+          - reference/env-vars.md
+          - reference/security-flags.md
+      - Session Configuration:
+          - reference/capabilities.md
+          - reference/settings.md
+          - reference/commands.md
+          - reference/bidi.md
+          - reference/execute-methods.md
+      - Element Management:
+          - reference/locator-strategies.md
+          - reference/ios-predicate.md
+          - reference/element-attributes.md
+  - Guides:
+      - Environment Configuration:
+          - guides/parallel-tests.md
+          - guides/ci-setup.md
+          - guides/multiple-xcode-versions.md
+          - guides/remotexpc-tunnels-real-devices.md
+          - guides/remotexpc-apple-tv-pairing.md
+          - Improve Session Startup Performance:
+              - guides/run-preinstalled-wda.md
+              - guides/run-prebuilt-wda.md
+              - guides/attach-to-running-wda.md
+          - guides/wda-custom-server.md
+      - Driver Actions:
+          - guides/audio-capture.md
+          - guides/file-transfer.md
+          - guides/install-certificate.md
+          - guides/clipboard.md
+          - guides/touch-id.md
+          - guides/gestures.md
+      - Other:
+          - guides/tvos.md
+          - guides/input-events.md
+          - guides/capability-sets.md
+          - guides/hybrid.md
+          - guides/mjpeg.md
+  - Troubleshooting:
+      - troubleshooting/index.md
+      - troubleshooting/element-lookup.md
+      - troubleshooting/wda-slowness.md
+  - contributing.md
+
+plugins:
+  redirects:
+    redirect_maps:
+      'device-preparation.md': 'getting-started/device-setup.md'
+      'real-device-config.md': 'getting-started/device-setup.md'
+      'setup.md': 'getting-started/index.md'
+      'actions.md': 'guides/input-events.md'
+      'attach-to-running-wda.md': 'guides/attach-to-running-wda.md'
+      'audio-capture.md': 'guides/audio-capture.md'
+      'ci-setup.md': 'guides/ci-setup.md'
+      'clipboard.md': 'guides/clipboard.md'
+      'ios-tvos.md': 'guides/tvos.md'
+      'ios-xctest-file-movement.md': 'guides/file-transfer.md'
+      'ios-xctest-install-certificate.md': 'guides/install-certificate.md'
+      'multiple-xcode-versions.md': 'guides/multiple-xcode-versions.md'
+      'parallel-tests.md': 'guides/parallel-tests.md'
+      'run-prebuilt-wda.md': 'guides/run-prebuilt-wda.md'
+      'run-preinstalled-wda.md': 'guides/run-preinstalled-wda.md'
+      'touch-id.md': 'guides/touch-id.md'
+      'wda-custom-server.md': 'guides/wda-custom-server.md'
+      'capabilities.md': 'reference/capabilities.md'
+      'reference/commands/appium-xcuitest-driver.md': 'reference/commands.md'
+      'element-attributes.md': 'reference/element-attributes.md'
+      'execute-methods.md': 'reference/execute-methods.md'
+      'ios-predicate.md': 'reference/ios-predicate.md'
+      'locator-strategies.md': 'reference/locator-strategies.md'
+      'security-flags.md': 'reference/security-flags.md'
+      'server-args.md': 'reference/server-args.md'
+      'settings.md': 'reference/settings.md'
+      'installation/requirements.md': 'getting-started/system-requirements.md'
+      'installation/index.md': 'getting-started/index.md'
+      'preparation/index.md': 'getting-started/device-setup.md'
+      'preparation/real-device-config.md': 'getting-started/device-setup.md'
+      'preparation/prov-profile-basic-auto.md': 'getting-started/provisioning-profile/auto-config.md'
+      'preparation/prov-profile-basic-manual.md': 'getting-started/provisioning-profile/basic-manual-config.md'
+      'preparation/prov-profile-full-manual.md': 'getting-started/provisioning-profile/full-manual-config.md'
+      'preparation/prov-profile-generic-manual.md': 'getting-started/provisioning-profile/generic-device-config.md'
+      'guides/troubleshooting.md': 'troubleshooting/index.md'
+      'guides/elements-lookup-troubleshooting.md': 'troubleshooting/element-lookup.md'
+      'guides/wda-slowness.md': 'troubleshooting/wda-slowness.md'

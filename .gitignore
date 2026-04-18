@@ -1,0 +1,15 @@
+node_modules
+build
+coverage
+*.log
+*.xcconfig
+.DS_Store
+ci-metrics
+.nyc_output/
+test-results.xml
+.vscode
+.idea/
+npm-shrinkwrap.json
+package-lock.json*
+site
+test/fixtures/
