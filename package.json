@@ -92,7 +92,7 @@
     "asyncbox": "^6.0.1",
     "axios": "^1.4.0",
     "bluebird": "^3.7.2",
-    "commander": "^14.0.1",
+    "commander": "^15.0.0",
     "css-selector-parser": "^3.0.0",
     "js2xmlparser2": "^0.x",
     "lodash": "^4.17.21",
